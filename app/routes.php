@@ -13,10 +13,20 @@
 
 Route::get('/', function()
 {
+	$location = new Location;
+	$location->userid = '10';
+	//$location->save();
+	echo Location::all();
 	return View::make('hello');
 });
 
 Route::get('/map', function()
 {
 	return View::make('map');
+});
+
+Route::post('location', function()
+{
+	$input = Input::all();
+    return $input;
 });
