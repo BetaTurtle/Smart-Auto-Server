@@ -16,7 +16,14 @@ Route::get('/', function()
 	$location = new Location;
 	$location->userid = '10';
 	//$location->save();
-	echo Location::all();
+	$model = Location::where('userid','=','10')->first();
+	$driver = new Driver;
+	$devid = "sample";
+	$driver->deviceid = $devid;
+	//$driver->save();
+
+	echo $model;
+	//echo sizeof($model);
 	return View::make('hello');
 });
 
@@ -25,8 +32,6 @@ Route::get('/map', function()
 	return View::make('map');
 });
 
-Route::post('location', function()
-{
-	$input = Input::all();
-    return $input;
-});
+Route::post('location', 'LocationController@saveLocation');
+
+Route::get('location', 'LocationController@getLocation');
