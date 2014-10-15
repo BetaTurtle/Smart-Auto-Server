@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 	
-    $.get("/location",function(data,status){
+    $.get("/driver",function(data,status){
         console.log(data[0]);
 
         var map = new google.maps.Map(document.getElementById('map'), {
