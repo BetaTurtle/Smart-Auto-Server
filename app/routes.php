@@ -13,6 +13,7 @@
 
 Route::get('/', function()
 {
+
 	$location = new Location;
 	$location->userid = '10';
 	//$location->save();
@@ -25,7 +26,7 @@ Route::get('/', function()
 	$driver = Driver::all();
 	//echo $driver[0];
 	//echo $driver[0]->locations;
-	echo $model[0]->driver;
+	//echo $model[0]->driver;
 	//echo sizeof($model);
 	return View::make('hello');
 });
@@ -47,7 +48,7 @@ Route::get('location', 'LocationController@getLocations');
 Route::get('driver', 'LocationController@getDrivers');
 
 Route::get('/gen/{name?}', function($name=null){
-	$data['name']=Hash::make($name);
+	$data['name']=Hash::make('a');
 	return View::make('gen', $data);
 });
 
@@ -80,6 +81,6 @@ Route::post('post', array(
 			//return $input;
 		}));
 
-Route::get('home', function(){
-	return View::make('home');
+Route::get('polymer', function(){
+	return View::make('polymer');
 });
