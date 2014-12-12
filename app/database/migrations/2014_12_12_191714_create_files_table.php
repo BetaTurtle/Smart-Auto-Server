@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDriversTable extends Migration {
+class CreateFilesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,14 @@ class CreateDriversTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('drivers', function(Blueprint $table)
+		Schema::create('files', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name');
-			$table->string('deviceid')->unique();
-			$table->string('vehicleno');
-			$table->string('mobileno');
-			$table->string('lat');
-			$table->string('lng');
-			$table->string('alt');
+			$table->string('native_name');
+		    $table->string('given_name')->unique();;
+		    $table->string('unique_name')->unique();
+		    $table->integer('user_id');
+		    $table->integer('course_id');
 			$table->timestamps();
 		});
 	}
@@ -33,7 +31,7 @@ class CreateDriversTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('drivers');
+		Schema::drop('files');
 	}
 
 }

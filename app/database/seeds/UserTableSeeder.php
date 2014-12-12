@@ -10,7 +10,7 @@ class UserTableSeeder extends Seeder
 			'name'     => 'Junaid Babu',
 			'username' => 'jun',
 			'email'    => 'me@junaidbabu.in',
-			'password' => Hash::make('awesome'),
+			'password' => Hash::make('creative'),
 		));
 	}
 
