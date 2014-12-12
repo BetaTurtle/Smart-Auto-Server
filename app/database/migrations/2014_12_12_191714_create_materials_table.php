@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFilesTable extends Migration {
+class CreateMaterialsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateFilesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('files', function(Blueprint $table)
+		Schema::create('materials', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('native_name');
@@ -31,7 +31,7 @@ class CreateFilesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('files');
+		Schema::drop('materials');
 	}
 
 }

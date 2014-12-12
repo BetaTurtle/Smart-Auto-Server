@@ -55,7 +55,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <paper-icon-button class="menuButton" icon="menu" ></paper-icon-button>
       <paper-fab class="sourceButton bottom" icon="launch"></paper-fab>
     
-    <core-item label="Home page" tag="paper-checkbox" url="/"></core-item>
+    <core-item label="Home page" tag="home" url="/"></core-item>
+
+    <core-item label="Some check" tag="checked item" url="http://localhost:4000/components/paper-toggle-button/demo.html"></core-item>
 
 
       <core-item label="Checkbox" tag="paper-checkbox" url="../paper-checkbox/demo.html"></core-item>

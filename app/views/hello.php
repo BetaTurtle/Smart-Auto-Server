@@ -11,6 +11,7 @@
 			font-family:'Lato', sans-serif;
 			text-align:center;
 			color: #999;
+     		padding: 24px;
 		}
 
 		.welcome {
@@ -32,6 +33,7 @@
 			margin: 16px 0 0 0;
 		}
 	</style>
+	 <script src="http://localhost:4000/components/webcomponentsjs/webcomponents.js"></script>
 </head>
 <body>
 	<div class="welcome">
