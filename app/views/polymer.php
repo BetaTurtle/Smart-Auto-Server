@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <html>
   <head>
-    <title>Paper Elements Sampler</title>
+    <title>Last Minute - Home</title>
 
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -30,6 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <link rel="import" href="assets/components/paper-icon-button/paper-icon-button.html">
     <link rel="import" href="assets/components/paper-fab/paper-fab.html">
 
+<link rel="import" href="/assets/elements/test-element.html">
     <style>
 
       body {
@@ -50,13 +51,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <body unresolved>
 
-    <sampler-scaffold label="Paper Elements" fit>
+    <sampler-scaffold label="Home" fit>
 
       <paper-icon-button class="menuButton" icon="menu" ></paper-icon-button>
       <paper-fab class="sourceButton bottom" icon="launch"></paper-fab>
-    
+      
     <core-item label="Home page" tag="home" url="/"></core-item>
-
+    <!--<test-element></test-element>-->
     <core-item label="Some check" tag="checked item" url="http://localhost:4000/components/paper-toggle-button/demo.html"></core-item>
 
 

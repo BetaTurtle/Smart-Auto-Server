@@ -1,0 +1,85 @@
+<link rel="import" href="/assets/components/polymer/polymer.html">
+<link rel="import" href="/assets/components/core-ajax/core-ajax.html">
+<link rel="import" href="/assets/components/paper-input/paper-input.html">
+<link rel="import" href="/assets/components/paper-button/paper-button.html">
+<link rel="import" href="/assets/components/paper-progress/paper-progress.html">
+<polymer-element name="login-element">
+  <template>
+  <style type="text/css">
+    .card {
+      display: inline-block;
+      background: white;
+      box-sizing: border-box;
+      width: 300px;
+      height: 380px;
+      margin: 10px;
+      padding: 16px;
+      border-radius: 2px;
+    }
+    paper-progress {
+      display: block;
+      width: 100%;
+      padding: 25px 0;
+    }
+  </style>
+
+<paper-shadow class="card" id = "group" z="2">
+ <paper-progress id="prog" indeterminate ></paper-progress>
+  <h3>Login</h3>
+  <h5>{{resp}}</h5>
+  <paper-input-decorator label="Email" id="inputemail" error="Invalid email" floatinglabel>
+    <input type="email" is="core-input" value="{{item.email}}" required>
+  </paper-input-decorator>
+  <paper-input-decorator label="Password" floatinglabel error="Required field">
+    <input type="password" is="core-input" value="{{item.password}}" required>
+  </paper-input-decorator>
+
+  <paper-button raised on-tap="{{ doSend }}" role="button" tabindex="0" style="
+    bottom: 0px;
+    position: absolute;
+    margin-bottom: 15px;
+">Login</paper-button>
+  
+     <core-ajax id="ajaxcore" url="/login" auto="false" method="POST" params="{{item}}"  handleAs="json" on-core-response="{{onresp}}"></core-ajax>
+</paper-shadow>
+   
+   
+  </template>
+
+  <script>
+  	Polymer('login-element', {
+      toUpperCase: function(value) {
+        if(value==null)
+          value="";
+        return value.toUpperCase();
+      },
+      onresp: function(event, response, sender){
+        console.log(event);
+        console.log(response);
+        console.log(sender);
+        this.resp=response.response.message;
+        if(response.response.result=='true'){
+          document.location.replace(response.response.url);
+        }
+      },
+      created: function(){
+        this.item={};
+        this.resp="";
+      },
+  		doSend: function(event, detail, sender){
+        console.log("clicked");
+        this.$.prog.visibility="false";
+        console.log(this.$.prog);
+        var okay = true;  
+        var $d = this.$.group.querySelectorAll('paper-input-decorator');
+        Array.prototype.forEach.call($d, function(d) {
+          d.isInvalid = !d.querySelector('input').validity.valid;
+          if(d.isInvalid==true)
+            okay=false;
+        });
+        if(okay)
+          this.$.ajaxcore.go();
+  		}
+  	});
+  </script>
+</polymer-element>

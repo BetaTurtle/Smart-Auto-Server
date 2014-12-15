@@ -1,0 +1,25 @@
+<link rel="import" href="/assets/components/polymer/polymer.html">
+<link rel="import" href="/assets/components/core-ajax/core-ajax.html">
+<link rel="import" href="/assets/components/paper-shadow/paper-shadow.html">
+<link rel="import" href="/assets/components/core-item/core-item.html">
+<polymer-element name="test-element">
+  <template>
+  
+     <core-ajax url="/array" auto response="{{resp}}" handleAs="json"></core-ajax>
+
+    <template repeat="{{s in resp}}">
+			<core-item label="{{s.who}}" tag="{{s.who}}" url="{{s.what}}"></core-item>
+	</template>
+   
+   
+  </template>
+
+  <script>
+  	Polymer({
+  		sometext: "asdf",
+  		res: function(data){
+  			alert(data);
+  		}
+  	});
+  </script>
+</polymer-element>

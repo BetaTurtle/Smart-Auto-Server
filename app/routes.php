@@ -13,7 +13,13 @@
 
 Route::get('/', function()
 {
-	return "Yolo"; 
+	$a = array(
+		'result'=> 'true',
+		'ur'    => URL::to('home'));
+	return $a;
+	return View::make('index');
+
+
 	$location = new Location;
 	$location->userid = '10';
 	//$location->save();
@@ -32,6 +38,15 @@ Route::get('/', function()
 });
 
 
+Route::get('array', function(){
+	return '[{"what":"Hello","who":"World"},{"what":"Goodbye","who":"DOM APIs"},{"what":"Hello","who":"Declarative"},{"what":"Goodbye","who":"Imperative"}]';
+	$s = '[';
+	for($i=0; $i<10; $i++){
+		$s=$s.$i.',';
+	}
+	$s=$s.$i.']';
+	return $s;
+});
 // Route::get('/map', function()
 // {
 // 	return View::make('map');
@@ -48,6 +63,7 @@ Route::get('/', function()
 
 Route::get('login', 'HomeController@showLogin');
 Route::post('login', 'HomeController@doLogin');
+
 Route::get('logout', 'HomeController@doLogout');
 Route::get('home', array(
 			'before' => 'auth',
