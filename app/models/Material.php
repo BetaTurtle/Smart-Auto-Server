@@ -4,7 +4,7 @@
 
 class Material extends Eloquent {
 
-    public function user(){
+	public function user(){
     	return $this->belongsTo('User');
     }
 
