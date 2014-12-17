@@ -1,6 +1,6 @@
 <?php
 
-class Article extends \BaseController {
+class CourseController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,6 +10,8 @@ class Article extends \BaseController {
 	public function index()
 	{
 		//
+		$courses = Auth::user()->courses;
+		return $courses;
 	}
 
 
@@ -44,6 +46,9 @@ class Article extends \BaseController {
 	public function show($id)
 	{
 		//
+		$materials = Course::find($id)->materials;
+		return $materials;
+
 	}
 
 

@@ -21,8 +21,11 @@ class HomeController extends BaseController {
 	}
 
 	public function showHome(){
-		return Auth::user();
-		
+		$c = Auth::user()->courses;
+		$data['data'] = $c;
+		//return $c;
+		//return Auth::user();
+		return View::make('home', $data);
 		//var_dump($file);
 
 	}
