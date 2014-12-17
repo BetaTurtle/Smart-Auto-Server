@@ -1,5 +1,3 @@
-// app/database/seeds/FileTableSeeder.php
-
 <?php
 
 class FileTableSeeder extends Seeder
